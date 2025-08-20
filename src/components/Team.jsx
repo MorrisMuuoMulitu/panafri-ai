@@ -76,16 +76,16 @@ const Team = () => {
             {teamMembers.map((member, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <CardHeader className="text-center pb-4">
-                  <div className="team-photo-container mx-auto mb-6">
+                  <div className="mx-auto w-32 h-32 bg-gray-200 rounded-full mb-6 overflow-hidden">
                     {member.image ? (
                       <img 
                         src={member.image} 
                         alt={member.name}
-                        className="team-photo"
+                        className="w-full h-full object-cover"
                       />
                     ) : (
-                      <div className="team-photo bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
-                        <Users className="h-20 w-20 text-gray-400" />
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Users className="h-16 w-16 text-gray-400" />
                       </div>
                     )}
                   </div>
