@@ -20,6 +20,43 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #111827;
   color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Fix for content overlap - ensure proper stacking context */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header fixes */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+/* Section spacing fixes */
+section {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+  padding: 4rem 0;
+}
+
+/* Ensure proper container spacing */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Fix for overlapping content - add proper margins */
+.section-spacing {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 
 /* Custom scrollbar */
@@ -40,7 +77,7 @@ body {
   background: #6b7280;
 }
 
-/* Custom animations */
+/* Enhanced animations */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -59,6 +96,49 @@ body {
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(16, 185, 129, 0);
+  }
+}
+
+/* Animation classes */
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -67,28 +147,149 @@ body {
   animation: glow 2s ease-in-out infinite;
 }
 
-/* Gradient text utilities */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Enhanced gradient text utilities */
 .gradient-text {
   background: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
 }
 
-/* Custom button hover effects */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Enhanced button hover effects */
 .btn-hover-scale {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-hover-scale::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-hover-scale:hover::before {
+  left: 100%;
 }
 
 .btn-hover-scale:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.card-hover:hover::before {
+  opacity: 1;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Team member photo enhancements */
+.team-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid transparent;
+  background: linear-gradient(135deg, #10b981, #3b82f6) padding-box,
+              linear-gradient(135deg, #10b981, #3b82f6) border-box;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.team-photo:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+}
+
+.team-photo-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.team-photo-container::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #10b981, #3b82f6);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+}
+
+.team-photo-container:hover::after {
+  opacity: 0.3;
 }
 
 /* Backdrop blur support */
 .backdrop-blur-custom {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+/* Enhanced glass morphism effect */
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Selection colors */
@@ -100,4 +301,82 @@ body {
 ::-moz-selection {
   background-color: rgba(16, 185, 129, 0.3);
   color: #ffffff;
+}
+
+/* Loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 0;
+  }
+  
+  .team-photo {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .section-spacing {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-photo {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Focus states for accessibility */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .gradient-text {
+    background: #ffffff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
 }
