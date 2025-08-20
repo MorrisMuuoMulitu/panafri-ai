@@ -68,7 +68,7 @@ const Contact = () => {
   ]
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 section-spacing">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -84,7 +84,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div>
-            <Card className="shadow-lg">
+            <Card className="shadow-lg glass-morphism">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold flex items-center">
                   <MessageSquare className="mr-3 h-6 w-6 text-blue-600" />
@@ -186,7 +186,7 @@ const Contact = () => {
               </h2>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <Card key={index} className="hover:shadow-md transition-shadow">
+                  <Card key={index} className="hover:shadow-md card-hover">
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
                         <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -205,7 +205,7 @@ const Contact = () => {
             </div>
 
             {/* Why Choose Us */}
-            <Card className="bg-gradient-to-br from-blue-50 to-indigo-100">
+            <Card className="bg-gradient-to-br from-blue-50 to-indigo-100 glass-morphism">
               <CardHeader>
                 <CardTitle className="text-xl font-bold">Why Partner with Us?</CardTitle>
               </CardHeader>
@@ -235,7 +235,7 @@ const Contact = () => {
             </Card>
 
             {/* Quick Response Promise */}
-            <Card className="bg-green-50 border-green-200">
+            <Card className="bg-green-50 border-green-200 glass-morphism">
               <CardContent className="p-6 text-center">
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="h-6 w-6 text-green-600" />
@@ -255,4 +255,3 @@ const Contact = () => {
 }
 
 export default Contact
-

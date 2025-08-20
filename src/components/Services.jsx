@@ -37,7 +37,7 @@ const Services = () => {
   ]
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 section-spacing">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -68,7 +68,7 @@ const Services = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               {consultancyFeatures.map((feature, index) => (
-                <Card key={index} className="bg-white hover:shadow-lg transition-shadow">
+                <Card key={index} className="bg-white hover:shadow-lg card-hover">
                   <CardHeader className="text-center">
                     <div className="mx-auto w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                       <feature.icon className="h-6 w-6 text-blue-600" />
@@ -113,7 +113,7 @@ const Services = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               {trainingPrograms.map((program, index) => (
-                <Card key={index} className="bg-white hover:shadow-lg transition-shadow">
+                <Card key={index} className="bg-white hover:shadow-lg card-hover">
                   <CardHeader>
                     <div className="flex items-center space-x-3 mb-4">
                       <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
@@ -167,7 +167,7 @@ const Services = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="text-center bg-gray-900 rounded-2xl p-8 md:p-12 text-white">
+        <section className="text-center bg-gray-900 rounded-2xl p-8 md:p-12 text-white section-spacing">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Transform Your Business?
           </h2>
@@ -193,4 +193,3 @@ const Services = () => {
 }
 
 export default Services
-

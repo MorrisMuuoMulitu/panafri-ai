@@ -106,9 +106,9 @@ const Home = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 section-spacing">
         <div className="max-w-7xl mx-auto text-center">
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-10'}`}>
             {/* Badge */}
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-emerald-400/20 to-blue-400/20 border border-emerald-400/30 mb-8">
               <Award className="w-4 h-4 mr-2 text-emerald-400" />
@@ -183,7 +183,7 @@ const Home = () => {
       </section>
 
       {/* Client Logos Section */}
-      <section className="py-20 border-t border-gray-800">
+      <section className="py-20 border-t border-gray-800 section-spacing">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-gray-400 text-lg">Trusted by leading African organizations</p>
@@ -201,7 +201,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 relative">
+      <section className="py-20 relative section-spacing">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -216,7 +216,7 @@ const Home = () => {
             {services.map((service, index) => (
               <Card 
                 key={index} 
-                className="bg-gray-800/50 border-gray-700 hover:border-emerald-400/50 transition-all duration-500 hover:transform hover:scale-105 group backdrop-blur-sm"
+                className="bg-gray-800/50 border-gray-700 hover:border-emerald-400/50 card-hover group backdrop-blur-sm glass-morphism"
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center space-x-4 mb-4">
@@ -260,7 +260,7 @@ const Home = () => {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-20 bg-gray-800/30">
+      <section className="py-20 bg-gray-800/30 section-spacing">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -273,7 +273,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {caseStudies.map((study, index) => (
-              <Card key={index} className="bg-gray-800/50 border-gray-700 hover:border-blue-400/50 transition-all duration-500 hover:transform hover:-translate-y-2 group backdrop-blur-sm overflow-hidden">
+              <Card key={index} className="bg-gray-800/50 border-gray-700 hover:border-blue-400/50 card-hover group backdrop-blur-sm glass-morphism overflow-hidden">
                 <div className="h-48 bg-gradient-to-br from-gray-700 to-gray-800 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
@@ -305,7 +305,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20">
+      <section className="py-20 section-spacing">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -318,7 +318,7 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-gray-800/50 border-gray-700 hover:border-amber-400/50 transition-all duration-500 backdrop-blur-sm">
+              <Card key={index} className="bg-gray-800/50 border-gray-700 hover:border-amber-400/50 card-hover backdrop-blur-sm glass-morphism">
                 <CardHeader>
                   <div className="flex items-center space-x-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -349,7 +349,7 @@ const Home = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-gradient-to-r from-emerald-400/10 via-blue-400/10 to-purple-400/10 border-t border-gray-800">
+      <section className="py-20 bg-gradient-to-r from-emerald-400/10 via-blue-400/10 to-purple-400/10 border-t border-gray-800 section-spacing">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Stay Ahead of the <span className="text-emerald-400">AI Curve</span>
@@ -371,7 +371,7 @@ const Home = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 via-blue-900/20 to-gray-900">
+      <section className="py-20 bg-gradient-to-r from-gray-900 via-blue-900/20 to-gray-900 section-spacing">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-full mb-8">
             <Lightbulb className="w-10 h-10 text-gray-900" />
@@ -384,7 +384,7 @@ const Home = () => {
           </p>
           <Button 
             size="lg" 
-            className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-gray-900 hover:from-emerald-500 hover:to-cyan-500 transform hover:scale-105 transition-all duration-300 px-12 py-4 text-xl font-bold"
+            className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-gray-900 hover:from-emerald-500 hover:to-cyan-500 btn-hover-scale px-12 py-4 text-xl font-bold"
             asChild
           >
             <Link to="/contact">
