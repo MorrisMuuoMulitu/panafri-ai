@@ -23,7 +23,11 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src={panafriAILogo} alt="PanAfri AI Solutions Logo" className="h-10" />
+            <img 
+              src={panafriAILogo} 
+              alt="PanAfri AI Solutions Logo" 
+              className="h-16 w-auto transform hover:scale-105 transition-transform duration-300 drop-shadow-lg" 
+            />
           </Link>
 
           {/* Desktop Navigation */}
