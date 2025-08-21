@@ -48,7 +48,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      description: 'hello@panafri.ai',
+      description: 'hello@panafriai.com',
       details: 'We respond within 24 hours'
     },
     {
