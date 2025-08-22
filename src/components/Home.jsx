@@ -52,98 +52,27 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Original Design Restored */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 py-32 overflow-hidden">
-        {/* Tech Grid Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="grid grid-cols-20 gap-1 h-full">
-            {Array.from({ length: 400 }).map((_, i) => (
-              <div key={i} className="border border-cyan-400/20 rounded-sm"></div>
-            ))}
-          </div>
-        </div>
-        
-        {/* Floating Code Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 text-cyan-400/30 font-mono text-sm animate-float">
-            {'<AI />'}
-          </div>
-          <div className="absolute top-40 right-20 text-blue-400/30 font-mono text-sm animate-float-delayed">
-            {'function transform() {}'}
-          </div>
-          <div className="absolute bottom-40 left-20 text-purple-400/30 font-mono text-sm animate-float">
-            {'const innovation = true;'}
-          </div>
-          <div className="absolute bottom-20 right-10 text-green-400/30 font-mono text-sm animate-float-delayed">
-            {'// Future is now'}
-          </div>
-        </div>
-        
-        {/* Animated Background Orbs */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
-        
+      <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center relative z-10">
-            {/* Tech Icons Header */}
-            <div className="flex justify-center space-x-8 mb-12">
-              <div className="w-20 h-20 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center animate-float shadow-2xl">
-                <Code2 className="h-10 w-10 text-white" />
-              </div>
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center animate-float-delayed shadow-2xl">
-                <Cpu className="h-10 w-10 text-white" />
-              </div>
-              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center animate-float shadow-2xl">
-                <Database className="h-10 w-10 text-white" />
-              </div>
-              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center animate-float-delayed shadow-2xl">
-                <Brain className="h-10 w-10 text-white" />
-              </div>
-            </div>
-            
-            <h1 className="text-5xl md:text-8xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-8 animate-gradient">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Empowering African Businesses with{' '}
-              <span className="bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">AI Solutions</span>
+              <span className="text-blue-600">AI Solutions</span>
             </h1>
-            <p className="text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Transform your business with cutting-edge AI consultancy and training. 
               We help African companies navigate the AI landscape and achieve global competitiveness.
             </p>
-            
-            {/* Enhanced CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <Button size="lg" className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white px-12 py-6 text-xl font-bold shadow-2xl transform hover:scale-105 transition-all duration-300" asChild>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" asChild>
                 <Link to="/contact">
-                  <Zap className="mr-3 h-6 w-6" />
                   Get Started Today
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button size="lg" className="bg-white/10 backdrop-blur-lg border border-white/20 text-white hover:bg-white/20 px-12 py-6 text-xl font-bold shadow-2xl transform hover:scale-105 transition-all duration-300" asChild>
-                <Link to="/services">
-                  <Brain className="mr-3 h-6 w-6" />
-                  Explore AI Solutions
-                </Link>
+              <Button size="lg" variant="outline" asChild>
+                <Link to="/services">Learn More</Link>
               </Button>
-            </div>
-            
-            {/* Tech Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                <div className="text-3xl font-bold text-cyan-400 mb-2">100+</div>
-                <div className="text-blue-200 font-medium">AI Projects</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                <div className="text-3xl font-bold text-purple-400 mb-2">50+</div>
-                <div className="text-blue-200 font-medium">Companies</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                <div className="text-3xl font-bold text-green-400 mb-2">95%</div>
-                <div className="text-blue-200 font-medium">Success Rate</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-white/20">
-                <div className="text-3xl font-bold text-orange-400 mb-2">5+</div>
-                <div className="text-blue-200 font-medium">Years Experience</div>
-              </div>
             </div>
           </div>
         </div>

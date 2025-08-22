@@ -73,6 +73,7 @@ const Services = () => {
   const servicePackages = [
     {
       name: 'AI Starter',
+      price: '$5,000',
       duration: '4-6 weeks',
       description: 'Perfect for businesses beginning their AI journey',
       features: [
@@ -87,6 +88,7 @@ const Services = () => {
     },
     {
       name: 'AI Accelerator',
+      price: '$15,000',
       duration: '8-12 weeks',
       description: 'Comprehensive AI transformation for growing companies',
       features: [
@@ -102,6 +104,7 @@ const Services = () => {
     },
     {
       name: 'AI Enterprise',
+      price: 'Custom',
       duration: '3-6 months',
       description: 'Full-scale AI transformation for large organizations',
       features: [
@@ -347,6 +350,7 @@ const Services = () => {
                     <Rocket className="h-10 w-10 text-white" />
                   </div>
                   <CardTitle className="text-2xl font-bold text-gray-900">{pkg.name}</CardTitle>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{pkg.price}</div>
                   <div className="text-gray-600 mb-4">{pkg.duration}</div>
                   <CardDescription className="text-lg">{pkg.description}</CardDescription>
                 </CardHeader>
