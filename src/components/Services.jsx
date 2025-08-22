@@ -145,33 +145,33 @@ const Services = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-[var(--color-primary)]">
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[var(--color-accent-1)]/20 to-[var(--color-accent-2)]/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[var(--color-accent-1)]/20 to-[var(--color-accent-2)]/20 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <div className="flex justify-center space-x-4 mb-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center animate-float">
+              <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-accent-1)] to-[var(--color-accent-2)] rounded-2xl flex items-center justify-center animate-float">
                 <Brain className="h-8 w-8 text-white" />
               </div>
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center animate-float-delayed">
+              <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-accent-2)] to-[var(--color-accent-1)] rounded-2xl flex items-center justify-center animate-float-delayed">
                 <Rocket className="h-8 w-8 text-white" />
               </div>
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center animate-float">
+              <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-accent-1)] to-[var(--color-accent-2)] rounded-2xl flex items-center justify-center animate-float">
                 <Target className="h-8 w-8 text-white" />
               </div>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent mb-8">
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[var(--color-text-light)] via-[var(--color-accent-1)] to-[var(--color-accent-2)] bg-clip-text text-transparent mb-8">
               AI Services That Drive Results
             </h1>
-            <p className="text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed">
+            <p className="text-2xl text-[var(--color-text-dark)] max-w-4xl mx-auto mb-8 leading-relaxed">
               Transform your business with our comprehensive AI consulting and training services, 
               designed specifically for the African market.
             </p>
@@ -181,14 +181,22 @@ const Services = () => {
               <Button
                 variant={activeTab === 'consultancy' ? 'default' : 'outline'}
                 onClick={() => setActiveTab('consultancy')}
-                className="px-8 py-3 text-lg"
+                className={`px-8 py-3 text-lg ${
+                  activeTab === 'consultancy'
+                    ? 'bg-[var(--color-accent-1)] text-[var(--color-primary)] hover:bg-[var(--color-accent-1)]/80'
+                    : 'border-[var(--color-accent-1)] text-[var(--color-accent-1)] hover:bg-[var(--color-accent-1)]/20'
+                }`}
               >
                 AI Consultancy
               </Button>
               <Button
                 variant={activeTab === 'training' ? 'default' : 'outline'}
                 onClick={() => setActiveTab('training')}
-                className="px-8 py-3 text-lg"
+                className={`px-8 py-3 text-lg ${
+                  activeTab === 'training'
+                    ? 'bg-[var(--color-accent-1)] text-[var(--color-primary)] hover:bg-[var(--color-accent-1)]/80'
+                    : 'border-[var(--color-accent-1)] text-[var(--color-accent-1)] hover:bg-[var(--color-accent-1)]/20'
+                }`}
               >
                 AI Training
               </Button>
@@ -198,16 +206,16 @@ const Services = () => {
       </section>
 
       {/* Dynamic Service Content */}
-      <section className="py-20">
+      <section className="py-20 bg-[var(--color-primary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {activeTab === 'consultancy' && (
             <div className="space-y-16">
               {/* Consultancy Header */}
               <div className="text-center">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-light)] mb-6">
                   AI Consultancy Services
                 </h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p className="text-xl text-[var(--color-text-dark)] max-w-3xl mx-auto">
                   Strategic guidance to navigate your AI transformation journey with confidence and clarity.
                 </p>
               </div>
@@ -215,17 +223,17 @@ const Services = () => {
               {/* Consultancy Features Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {consultancyFeatures.map((feature, index) => (
-                  <Card key={index} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white border-0 shadow-lg relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <Card key={index} className="group hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-[var(--color-secondary)] border border-[var(--color-border)] relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent-1)]/5 to-[var(--color-accent-2)]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     <CardHeader className="relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-accent-1)] to-[var(--color-accent-2)] rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                         <feature.icon className="h-8 w-8 text-white" />
                       </div>
-                      <CardTitle className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                      <CardTitle className="text-2xl font-bold text-[var(--color-text-light)] group-hover:text-[var(--color-accent-1)] transition-colors">
                         {feature.title}
                       </CardTitle>
-                      <CardDescription className="text-lg text-gray-600 leading-relaxed">
+                      <CardDescription className="text-lg text-[var(--color-text-dark)] leading-relaxed">
                         {feature.description}
                       </CardDescription>
                     </CardHeader>
@@ -234,8 +242,8 @@ const Services = () => {
                       <div className="grid grid-cols-2 gap-3">
                         {feature.benefits.map((benefit, benefitIndex) => (
                           <div key={benefitIndex} className="flex items-center space-x-2">
-                            <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                            <span className="text-sm text-gray-700 font-medium">{benefit}</span>
+                            <CheckCircle className="h-4 w-4 text-[var(--color-accent-1)] flex-shrink-0" />
+                            <span className="text-sm text-[var(--color-text-dark)] font-medium">{benefit}</span>
                           </div>
                         ))}
                       </div>
@@ -250,10 +258,10 @@ const Services = () => {
             <div className="space-y-16">
               {/* Training Header */}
               <div className="text-center">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-light)] mb-6">
                   AI Training Programs
                 </h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p className="text-xl text-[var(--color-text-dark)] max-w-3xl mx-auto">
                   Comprehensive training solutions to build AI capabilities across your organization.
                 </p>
               </div>
@@ -261,16 +269,16 @@ const Services = () => {
               {/* Training Programs */}
               <div className="space-y-8">
                 {trainingPrograms.map((program, index) => (
-                  <Card key={index} className="group hover:shadow-2xl transition-all duration-500 bg-white border-0 shadow-lg overflow-hidden">
+                  <Card key={index} className="group hover:shadow-2xl transition-all duration-500 bg-[var(--color-secondary)] border border-[var(--color-border)] overflow-hidden">
                     <div className="md:flex">
-                      <div className="md:w-1/3 bg-gradient-to-br from-blue-500 to-purple-600 p-8 text-white relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                      <div className="md:w-1/3 bg-gradient-to-br from-[var(--color-accent-1)] to-[var(--color-accent-2)] p-8 text-white relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-text-light)]/10 rounded-full blur-2xl"></div>
                         <div className="relative z-10">
-                          <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                          <div className="w-16 h-16 bg-[var(--color-text-light)]/20 rounded-2xl flex items-center justify-center mb-6">
                             <program.icon className="h-8 w-8 text-white" />
                           </div>
                           <h3 className="text-2xl font-bold mb-4">{program.title}</h3>
-                          <p className="text-blue-100 mb-6">{program.description}</p>
+                          <p className="text-[var(--color-text-light)] mb-6">{program.description}</p>
                           
                           <div className="space-y-3">
                             <div className="flex items-center space-x-2">
@@ -290,26 +298,26 @@ const Services = () => {
                       </div>
                       
                       <div className="md:w-2/3 p-8">
-                        <h4 className="text-xl font-bold text-gray-900 mb-6">Learning Outcomes</h4>
+                        <h4 className="text-xl font-bold text-[var(--color-text-light)] mb-6">Learning Outcomes</h4>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                           {program.outcomes.map((outcome, outcomeIndex) => (
                             <div key={outcomeIndex} className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                                <CheckCircle className="h-4 w-4 text-green-600" />
+                              <div className="w-8 h-8 bg-[var(--color-primary)] rounded-full flex items-center justify-center border border-[var(--color-accent-1)]/50">
+                                <CheckCircle className="h-4 w-4 text-[var(--color-accent-1)]" />
                               </div>
-                              <span className="text-gray-700 font-medium">{outcome}</span>
+                              <span className="text-[var(--color-text-dark)] font-medium">{outcome}</span>
                             </div>
                           ))}
                         </div>
                         
                         <div className="flex space-x-4">
-                          <Button asChild>
+                          <Button asChild className="bg-[var(--color-accent-1)] hover:bg-[var(--color-accent-1)]/80 text-[var(--color-primary)] font-bold shadow-lg shadow-[var(--color-accent-1)]/20 transition-all duration-300 transform hover:scale-105 border-2 border-[var(--color-accent-1)] hover:border-[var(--color-accent-1)]/80">
                             <Link to="/contact">
                               Get Details
                               <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
                           </Button>
-                          <Button variant="outline">
+                          <Button variant="outline" className="border-[var(--color-accent-1)] text-[var(--color-accent-1)] hover:bg-[var(--color-accent-1)]/20 font-bold transition-all duration-300 transform hover:scale-105">
                             <Download className="mr-2 h-4 w-4" />
                             Download Brochure
                           </Button>
@@ -325,46 +333,46 @@ const Services = () => {
       </section>
 
       {/* Service Packages */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[var(--color-primary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-light)] mb-6">
               Choose Your AI Journey
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-[var(--color-text-dark)] max-w-3xl mx-auto">
               Flexible packages designed to meet your business needs and budget.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {servicePackages.map((pkg, index) => (
-              <Card key={index} className={`relative overflow-hidden transition-all duration-500 transform hover:-translate-y-4 ${pkg.popular ? 'ring-2 ring-purple-500 shadow-2xl scale-105' : 'hover:shadow-xl'}`}>
+              <Card key={index} className={`relative overflow-hidden transition-all duration-500 transform hover:-translate-y-4 bg-[var(--color-secondary)] border border-[var(--color-border)] ${pkg.popular ? 'ring-2 ring-[var(--color-accent-1)] shadow-2xl scale-105' : 'hover:shadow-xl'}`}>
                 {pkg.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-center py-2 text-sm font-bold">
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-[var(--color-accent-1)] to-[var(--color-accent-2)] text-white text-center py-2 text-sm font-bold">
                     MOST POPULAR
                   </div>
                 )}
                 
                 <CardHeader className={`${pkg.popular ? 'pt-12' : 'pt-8'} text-center`}>
-                  <div className={`w-20 h-20 bg-gradient-to-r ${pkg.gradient} rounded-3xl flex items-center justify-center mx-auto mb-6`}>
+                  <div className={`w-20 h-20 bg-gradient-to-r from-[var(--color-accent-1)] to-[var(--color-accent-2)] rounded-3xl flex items-center justify-center mx-auto mb-6`}>
                     <Rocket className="h-10 w-10 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold text-gray-900">{pkg.name}</CardTitle>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{pkg.price}</div>
-                  <div className="text-gray-600 mb-4">{pkg.duration}</div>
-                  <CardDescription className="text-lg">{pkg.description}</CardDescription>
+                  <CardTitle className="text-2xl font-bold text-[var(--color-text-light)]">{pkg.name}</CardTitle>
+                  <div className="text-4xl font-bold text-[var(--color-text-light)] mb-2">{pkg.price}</div>
+                  <div className="text-[var(--color-text-dark)] mb-4">{pkg.duration}</div>
+                  <CardDescription className="text-lg text-[var(--color-text-dark)]">{pkg.description}</CardDescription>
                 </CardHeader>
                 
                 <CardContent className="space-y-4">
                   {pkg.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <CheckCircle className="h-5 w-5 text-[var(--color-accent-1)] flex-shrink-0" />
+                      <span className="text-[var(--color-text-dark)]">{feature}</span>
                     </div>
                   ))}
                   
                   <div className="pt-6">
-                    <Button className="w-full" size="lg" asChild>
+                    <Button className="w-full bg-[var(--color-accent-1)] hover:bg-[var(--color-accent-1)]/80 text-[var(--color-primary)] font-bold shadow-lg shadow-[var(--color-accent-1)]/20 transition-all duration-300 transform hover:scale-105 border-2 border-[var(--color-accent-1)] hover:border-[var(--color-accent-1)]/80" size="lg" asChild>
                       <Link to="/contact">
                         Get Started
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -379,26 +387,26 @@ const Services = () => {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="py-20 bg-[var(--color-primary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-light)] mb-6">
               Industries We Transform
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-[var(--color-text-dark)] max-w-3xl mx-auto">
               Our AI solutions have delivered measurable results across diverse African industries.
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {industries.map((industry, index) => (
-              <Card key={index} className="group text-center hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white border-0 shadow-lg">
+              <Card key={index} className="group text-center bg-[var(--color-secondary)] border border-[var(--color-border)] hover:border-[var(--color-accent-1)] transition-all duration-300 transform hover:-translate-y-2">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-accent-1)] to-[var(--color-accent-2)] rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                     <industry.icon className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{industry.name}</h3>
-                  <Badge variant="secondary" className="bg-blue-100 text-blue-800">
+                  <h3 className="text-xl font-bold text-[var(--color-text-light)] mb-2">{industry.name}</h3>
+                  <Badge variant="secondary" className="bg-[var(--color-primary)] text-[var(--color-accent-1)] border border-[var(--color-accent-1)]/50">
                     {industry.projects} Projects
                   </Badge>
                 </CardContent>
@@ -409,32 +417,32 @@ const Services = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[var(--color-primary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text-light)] mb-6">
               What Our Clients Say
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-[var(--color-text-dark)]">
               Real results from real businesses across Africa.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-gradient-to-br from-blue-50 to-indigo-50 border-0 shadow-lg hover:shadow-xl transition-shadow">
+              <Card key={index} className="bg-[var(--color-secondary)] border border-[var(--color-border)] hover:border-[var(--color-accent-1)] transition-shadow">
                 <CardContent className="p-8">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      <Star key={i} className="h-5 w-5 text-[var(--color-accent-1)] fill-current" />
                     ))}
                   </div>
-                  <blockquote className="text-lg text-gray-700 mb-6 italic">
+                  <blockquote className="text-lg text-[var(--color-text-dark)] mb-6 italic">
                     "{testimonial.quote}"
                   </blockquote>
                   <div>
-                    <div className="font-bold text-gray-900">{testimonial.author}</div>
-                    <div className="text-gray-600">{testimonial.role}</div>
+                    <div className="font-bold text-[var(--color-text-light)]">{testimonial.author}</div>
+                    <div className="text-[var(--color-text-dark)]">{testimonial.role}</div>
                   </div>
                 </CardContent>
               </Card>
@@ -444,29 +452,29 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
+      <section className="py-20 bg-[var(--color-secondary)] text-[var(--color-text-light)] relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--color-text-light)]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[var(--color-text-light)]/10 rounded-full blur-3xl"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             Ready to Start Your AI Transformation?
           </h2>
-          <p className="text-xl mb-12 max-w-3xl mx-auto text-blue-100">
+          <p className="text-xl mb-12 max-w-3xl mx-auto text-[var(--color-text-dark)]">
             Join hundreds of African businesses that have already transformed their operations 
             with our AI solutions. Get started with a free consultation today.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button size="lg" variant="secondary" className="px-8 py-4 text-lg" asChild>
+            <Button size="lg" className="bg-[var(--color-accent-1)] hover:bg-[var(--color-accent-1)]/80 text-[var(--color-primary)] font-bold shadow-lg shadow-[var(--color-accent-1)]/20 transition-all duration-300 transform hover:scale-105 border-2 border-[var(--color-accent-1)] hover:border-[var(--color-accent-1)]/80" asChild>
               <Link to="/contact">
                 <MessageSquare className="mr-2 h-5 w-5" />
                 Free Consultation
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-blue-900" asChild>
+            <Button size="lg" variant="outline" className="border-[var(--color-accent-1)] text-[var(--color-accent-1)] hover:bg-[var(--color-accent-1)]/20 font-bold transition-all duration-300 transform hover:scale-105" asChild>
               <Link to="/team">
                 <Users className="mr-2 h-5 w-5" />
                 Meet Our Experts
@@ -474,7 +482,7 @@ const Services = () => {
             </Button>
           </div>
           
-          <div className="mt-12 flex justify-center space-x-8 text-blue-200">
+          <div className="mt-12 flex justify-center space-x-8 text-[var(--color-text-dark)]">
             <div className="flex items-center space-x-2">
               <Phone className="h-5 w-5" />
               <span>24/7 Support</span>

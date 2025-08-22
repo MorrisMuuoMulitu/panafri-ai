@@ -68,14 +68,14 @@ const Contact = () => {
   ]
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 bg-[var(--color-primary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-[var(--color-text-light)] mb-6">
             Get Started Today
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-[var(--color-text-dark)] max-w-3xl mx-auto">
             Partner with us to navigate the AI landscape and position your organization for success. 
             Contact us to explore how AI can transform your business.
           </p>
@@ -84,13 +84,13 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div>
-            <Card className="shadow-lg">
+            <Card className="bg-[var(--color-secondary)] border border-[var(--color-border)]">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold flex items-center">
-                  <MessageSquare className="mr-3 h-6 w-6 text-blue-600" />
+                <CardTitle className="text-2xl font-bold flex items-center text-[var(--color-text-light)]">
+                  <MessageSquare className="mr-3 h-6 w-6 text-[var(--color-accent-1)]" />
                   Send us a Message
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="text-[var(--color-text-dark)]">
                   Fill out the form below and we'll get back to you within 24 hours.
                 </CardDescription>
               </CardHeader>
@@ -98,7 +98,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="name">Full Name *</Label>
+                      <Label htmlFor="name" className="text-[var(--color-text-light)]">Full Name *</Label>
                       <Input
                         id="name"
                         name="name"
@@ -107,11 +107,11 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         placeholder="Your full name"
-                        className="mt-1"
+                        className="mt-1 bg-[var(--color-primary)] border-[var(--color-border)] text-[var(--color-text-light)] placeholder-[var(--color-text-dark)] focus:ring-[var(--color-accent-1)] focus:border-transparent"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email">Email Address *</Label>
+                      <Label htmlFor="email" className="text-[var(--color-text-light)]">Email Address *</Label>
                       <Input
                         id="email"
                         name="email"
@@ -120,13 +120,13 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         placeholder="your.email@company.com"
-                        className="mt-1"
+                        className="mt-1 bg-[var(--color-primary)] border-[var(--color-border)] text-[var(--color-text-light)] placeholder-[var(--color-text-dark)] focus:ring-[var(--color-accent-1)] focus:border-transparent"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="company">Company/Organization</Label>
+                    <Label htmlFor="company" className="text-[var(--color-text-light)]">Company/Organization</Label>
                     <Input
                       id="company"
                       name="company"
@@ -134,19 +134,19 @@ const Contact = () => {
                       value={formData.company}
                       onChange={handleInputChange}
                       placeholder="Your company name"
-                      className="mt-1"
+                      className="mt-1 bg-[var(--color-primary)] border-[var(--color-border)] text-[var(--color-text-light)] placeholder-[var(--color-text-dark)] focus:ring-[var(--color-accent-1)] focus:border-transparent"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="service">Service of Interest</Label>
+                    <Label htmlFor="service" className="text-[var(--color-text-light)]">Service of Interest</Label>
                     <Select onValueChange={handleSelectChange}>
-                      <SelectTrigger className="mt-1">
+                      <SelectTrigger className="mt-1 bg-[var(--color-primary)] border-[var(--color-border)] text-[var(--color-text-light)] placeholder-[var(--color-text-dark)] focus:ring-[var(--color-accent-1)] focus:border-transparent">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="bg-[var(--color-secondary)] border-[var(--color-border)] text-[var(--color-text-light)]">
                         {services.map((service) => (
-                          <SelectItem key={service.value} value={service.value}>
+                          <SelectItem key={service.value} value={service.value} className="hover:bg-[var(--color-primary)] focus:bg-[var(--color-primary)]">
                             {service.label}
                           </SelectItem>
                         ))}
@@ -155,7 +155,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="message">Message *</Label>
+                    <Label htmlFor="message" className="text-[var(--color-text-light)]">Message *</Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -164,11 +164,11 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Tell us about your project, goals, or questions..."
                       rows={5}
-                      className="mt-1"
+                      className="mt-1 bg-[var(--color-primary)] border-[var(--color-border)] text-[var(--color-text-light)] placeholder-[var(--color-text-dark)] focus:ring-[var(--color-accent-1)] focus:border-transparent"
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
+                  <Button type="submit" size="lg" className="w-full bg-[var(--color-accent-1)] hover:bg-[var(--color-accent-1)]/80 text-[var(--color-primary)] font-bold shadow-lg shadow-[var(--color-accent-1)]/20 transition-all duration-300 transform hover:scale-105 border-2 border-[var(--color-accent-1)] hover:border-[var(--color-accent-1)]/80">
                     <Send className="mr-2 h-5 w-5" />
                     Send Message
                   </Button>
@@ -181,21 +181,21 @@ const Contact = () => {
           <div className="space-y-8">
             {/* Contact Details */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl font-bold text-[var(--color-text-light)] mb-6">
                 Contact Information
               </h2>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
-                  <Card key={index} className="hover:shadow-md transition-shadow">
+                  <Card key={index} className="bg-[var(--color-secondary)] border border-[var(--color-border)] hover:border-[var(--color-accent-1)] transition-shadow">
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
-                        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <info.icon className="h-6 w-6 text-blue-600" />
+                        <div className="w-12 h-12 bg-[var(--color-primary)] rounded-lg flex items-center justify-center flex-shrink-0 border border-[var(--color-accent-1)]/50">
+                          <info.icon className="h-6 w-6 text-[var(--color-accent-1)]" />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-gray-900 mb-1">{info.title}</h3>
-                          <p className="text-gray-700 font-medium">{info.description}</p>
-                          <p className="text-gray-500 text-sm">{info.details}</p>
+                          <h3 className="font-semibold text-[var(--color-text-light)] mb-1">{info.title}</h3>
+                          <p className="text-[var(--color-text-dark)] font-medium">{info.description}</p>
+                          <p className="text-[var(--color-text-dark)] text-sm">{info.details}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -204,44 +204,44 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Why Choose Us */}
-            <Card className="bg-gradient-to-br from-blue-50 to-indigo-100">
+            {/* Why Partner with Us */}
+            <Card className="bg-[var(--color-secondary)] border border-[var(--color-border)]">
               <CardHeader>
-                <CardTitle className="text-xl font-bold">Why Partner with Us?</CardTitle>
+                <CardTitle className="text-xl font-bold text-[var(--color-text-light)]">Why Partner with Us?</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <Target className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                  <Target className="h-5 w-5 text-[var(--color-accent-1)] mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">African Market Expertise</h4>
-                    <p className="text-gray-600 text-sm">Deep understanding of local challenges and opportunities</p>
+                    <h4 className="font-semibold text-[var(--color-text-light)]">African Market Expertise</h4>
+                    <p className="text-[var(--color-text-dark)] text-sm">Deep understanding of local challenges and opportunities</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <Users className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                  <Users className="h-5 w-5 text-[var(--color-accent-1)] mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Proven Track Record</h4>
-                    <p className="text-gray-600 text-sm">Successful AI implementations across various industries</p>
+                    <h4 className="font-semibold text-[var(--color-text-light)]">Proven Track Record</h4>
+                    <p className="text-[var(--color-text-dark)] text-sm">Successful AI implementations across various industries</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <MessageSquare className="h-5 w-5 text-blue-600 mt-1 flex-shrink-0" />
+                  <MessageSquare className="h-5 w-5 text-[var(--color-accent-1)] mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Personalized Approach</h4>
-                    <p className="text-gray-600 text-sm">Tailored solutions that fit your specific business needs</p>
+                    <h4 className="font-semibold text-[var(--color-text-light)]">Personalized Approach</h4>
+                    <p className="text-[var(--color-text-dark)] text-sm">Tailored solutions that fit your specific business needs</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Quick Response Promise */}
-            <Card className="bg-green-50 border-green-200">
+            <Card className="bg-[var(--color-secondary)] border border-[var(--color-border)]">
               <CardContent className="p-6 text-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Mail className="h-6 w-6 text-green-600" />
+                <div className="w-12 h-12 bg-[var(--color-primary)] rounded-full flex items-center justify-center mx-auto mb-4 border border-[var(--color-accent-1)]/50">
+                  <Mail className="h-6 w-6 text-[var(--color-accent-1)]" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Quick Response Guarantee</h3>
-                <p className="text-gray-600 text-sm">
+                <h3 className="font-semibold text-[var(--color-text-light)] mb-2">Quick Response Guarantee</h3>
+                <p className="text-[var(--color-text-dark)] text-sm">
                   We respond to all inquiries within 24 hours. For urgent matters, 
                   we'll get back to you even sooner.
                 </p>

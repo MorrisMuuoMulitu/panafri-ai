@@ -1,5 +1,50 @@
 @import "tailwindcss";
 
+/* Global CSS Variables for Futuristic AI Theme */
+:root {
+  --color-primary: #0A0A0A; /* Deep Black */
+  --color-secondary: #1A1A1A; /* Dark Gray for cards/sections */
+  --color-accent-1: #00E6E6; /* Electric Cyan */
+  --color-accent-2: #8A2BE2; /* Blue Violet */
+  --color-text-light: #E0E0E0; /* Light Gray */
+  --color-text-dark: #A0A0A0; /* Medium Gray */
+  --color-border: #333333; /* Subtle border */
+  --color-success: #28A745;
+  --color-error: #DC3545;
+
+  /* Typography */
+  --font-heading: 'Space Mono', monospace, sans-serif; /* Bold, techy font */
+  --font-body: 'Inter', sans-serif; /* Clean, readable font */
+}
+
+/* Global Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-light);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--color-accent-1);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent-2);
+}
+
 /* Custom animations for enhanced UI */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
@@ -17,10 +62,10 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { 
+  0%, 100% {
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   }
-  50% { 
+  50% {
     box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
   }
 }
@@ -46,7 +91,7 @@
 
 .animate-gradient {
   background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
+  animation: gradient 15s ease infinite alternate; /* Slower, smoother gradient */
 }
 
 .animate-pulse-glow {
@@ -54,7 +99,7 @@
 }
 
 .animate-slide-up {
-  animation: slide-up 0.6s ease-out;
+  animation: slide-up 0.6s ease-out forwards; /* Ensure it stays at the end state */
 }
 
 /* Enhanced hover effects */
@@ -76,11 +121,6 @@
 
 .group:hover .group-hover\:rotate-12 {
   transform: rotate(12deg);
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Custom gradient backgrounds */
@@ -126,11 +166,37 @@ html {
 
 /* Enhanced text effects */
 .text-glow {
-  text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3); /* Neon glow */
 }
 
 .text-glow-hover:hover {
-  text-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+  text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6);
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+.glitch-text {
+  animation: glitch 0.5s infinite alternate;
+}
+
+/* Grid pattern for hero section */
+.hero-grid-pattern {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: pan-grid 20s linear infinite;
+}
+
+@keyframes pan-grid {
+  from { background-position: 0 0; }
+  to { background-position: -400px -400px; }
 }
 
 /* Enhanced service page animations */
