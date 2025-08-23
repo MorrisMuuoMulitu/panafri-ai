@@ -129,7 +129,7 @@ const Team = () => {
                       {member.expertise.map((skill, skillIndex) => (
                         <Badge 
                           key={skillIndex} 
-                          className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-4 py-2 text-sm font-medium hover:from-blue-600 hover:to-indigo-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                          className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-4 py-2 text-sm font-medium hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
                         >
                           {skill}
                         </Badge>
