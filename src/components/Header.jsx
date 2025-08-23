@@ -1,4 +1,4 @@
-import panafriAILogo from '../assets/logo_panafri_ai_solutions.png'
+import panafriAILogo from '../assets/logo_panafri_ai_solutions.png?w=100&format=webp'
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'

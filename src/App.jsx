@@ -6,6 +6,8 @@ import Home from './components/Home'
 import Services from './components/Services'
 import Team from './components/Team'
 import Contact from './components/Contact'
+import Terms from './components/Terms'
+import Privacy from './components/Privacy'
 import './App.css'
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </main>
         <Footer />

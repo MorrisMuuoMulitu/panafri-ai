@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Brain, Mail, MapPin, Phone, ArrowRight, Globe, Users, Target, Zap, Award, Code2, Database, Network } from 'lucide-react'
+import { Brain, ArrowRight, Globe, Users, Target, Zap, Award, Code2, Database, Network } from 'lucide-react'
+import { contactInfo } from '../lib/data'
 
 const Footer = () => {
   return (
@@ -41,24 +42,14 @@ const Footer = () => {
             
             {/* Contact Info */}
             <div className="space-y-4">
-              <div className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
+              {contactInfo.map((info, index) => (
+              <div key={index} className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
                 <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
-                  <MapPin className="h-4 w-4" />
+                  <info.icon className="h-4 w-4" />
                 </div>
-                <span className="font-medium">Kenya, East Africa</span>
+                <span className="font-medium">{info.description}</span>
               </div>
-              <div className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
-                <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
-                  <Mail className="h-4 w-4" />
-                </div>
-                <span className="font-medium">hello@panafriai.com</span>
-              </div>
-              <div className="flex items-center space-x-3 text-blue-100 hover:text-white transition-colors group">
-                <div className="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
-                  <Phone className="h-4 w-4" />
-                </div>
-                <span className="font-medium">Available upon request</span>
-              </div>
+            ))}
             </div>
           </div>
 
@@ -127,13 +118,16 @@ const Footer = () => {
         
         {/* Newsletter Signup */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-12 border border-white/20">
-          <div className="text-center mb-6">
+          <form name="newsletter" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="newsletter" />
+            <div className="text-center mb-6">
             <h3 className="text-2xl font-bold text-white mb-2">Stay Updated with AI Insights</h3>
             <p className="text-blue-100">Get the latest AI trends, case studies, and industry insights delivered to your inbox.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input 
               type="email" 
+              name="email"
               placeholder="Enter your email" 
               className="flex-1 px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent backdrop-blur-sm"
             />
@@ -141,6 +135,7 @@ const Footer = () => {
               Subscribe
             </button>
           </div>
+          </form>
         </div>
         
         {/* Tech Expertise Showcase */}

@@ -1,72 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Mail, MapPin, Phone, Send, MessageSquare, Users, Target } from 'lucide-react'
+import { Send, MessageSquare, Users, Target } from 'lucide-react'
+import { contactInfo, services } from '../lib/data'
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    service: '',
-    message: ''
-  })
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
-
-  const handleSelectChange = (value) => {
-    setFormData(prev => ({
-      ...prev,
-      service: value
-    }))
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    // You can add actual form submission logic here
-  }
-
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: 'Location',
-      description: 'Kenya, East Africa',
-      details: 'Serving the pan-African market'
-    },
-    {
-      icon: Mail,
-      title: 'Email',
-      description: 'hello@panafriai.com',
-      details: 'We respond within 24 hours'
-    },
-    {
-      icon: Phone,
-      title: 'Phone',
-      description: 'Available upon request',
-      details: 'Schedule a consultation call'
-    }
-  ]
-
-  const services = [
-    { value: 'ai-consultancy', label: 'AI Consultancy' },
-    { value: 'ai-training', label: 'AI Training' },
-    { value: 'executive-training', label: 'Executive Training' },
-    { value: 'workforce-training', label: 'Workforce Training' },
-    { value: 'general-inquiry', label: 'General Inquiry' }
-  ]
-
+  const Contact = () => {
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -95,7 +37,8 @@ const Contact = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form name="contact" method="POST" data-netlify="true" className="space-y-6">
+                  <input type="hidden" name="form-name" value="contact" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="name">Full Name *</Label>
@@ -104,8 +47,7 @@ const Contact = () => {
                         name="name"
                         type="text"
                         required
-                        value={formData.name}
-                        onChange={handleInputChange}
+                        minLength="2"
                         placeholder="Your full name"
                         className="mt-1"
                       />
@@ -117,8 +59,7 @@ const Contact = () => {
                         name="email"
                         type="email"
                         required
-                        value={formData.email}
-                        onChange={handleInputChange}
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}"
                         placeholder="your.email@company.com"
                         className="mt-1"
                       />
@@ -131,8 +72,6 @@ const Contact = () => {
                       id="company"
                       name="company"
                       type="text"
-                      value={formData.company}
-                      onChange={handleInputChange}
                       placeholder="Your company name"
                       className="mt-1"
                     />
@@ -140,7 +79,7 @@ const Contact = () => {
 
                   <div>
                     <Label htmlFor="service">Service of Interest</Label>
-                    <Select onValueChange={handleSelectChange}>
+                    <Select name="service">
                       <SelectTrigger className="mt-1">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
@@ -160,8 +99,7 @@ const Contact = () => {
                       id="message"
                       name="message"
                       required
-                      value={formData.message}
-                      onChange={handleInputChange}
+                      minLength="10"
                       placeholder="Tell us about your project, goals, or questions..."
                       rows={5}
                       className="mt-1"
