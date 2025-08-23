@@ -16,6 +16,9 @@ export default defineConfig([
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
     ],
+    plugins: {
+      storybook: storybook,
+    },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -27,6 +30,7 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'storybook/hierarchy-separator': 'warn',
     },
   },
 ])
