@@ -28,3 +28,6 @@ dist-ssr
 .env
 
 coverage/
+
+*storybook.log
+storybook-static
